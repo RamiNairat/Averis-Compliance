@@ -32,7 +32,7 @@ export default function HowItWorks() {
 
   return (
     <div className="bg-white">
-      <section className="pt-32 pb-24 px-6 bg-slate-50">
+      <section className="pt-12 pb-8 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

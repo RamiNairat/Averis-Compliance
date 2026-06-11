@@ -1,4 +1,4 @@
-import { Mail, Clock, CheckCircle2, Send, AlertCircle, Link as LinkIcon } from "lucide-react";
+import { Mail, Clock, CheckCircle2, Send, AlertCircle, Link as LinkIcon, Phone } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { useSearchParams, Link } from "react-router-dom";
@@ -25,7 +25,7 @@ export default function Contact() {
     const formData = new FormData(e.currentTarget);
     
     try {
-      const response = await fetch("https://formspree.io/f/xpwqrqzv", {
+      const response = await fetch("https://formspree.io/f/mjgdeyal", {
         method: "POST",
         body: formData,
         headers: {
@@ -105,8 +105,7 @@ export default function Contact() {
 
               <div className="mb-6 text-sm text-slate-500">
                 Prefer to hire through a platform? Find me on{" "}
-                <a href="#" /* FIVERR LINK */ className="text-brand-600 hover:underline">Fiverr</a> or{" "}
-                <a href="#" /* UPWORK LINK */ className="text-brand-600 hover:underline">Upwork</a>
+                <a href="https://www.upwork.com/freelancers/~017300443a4cf262ca" className="text-brand-600 hover:underline">Upwork</a>
               </div>
 
               <div className="p-10 rounded-[2.5rem] bg-brand-950 text-white relative overflow-hidden">
@@ -118,9 +117,15 @@ export default function Contact() {
                 <p className="text-brand-100/80 leading-relaxed mb-8 text-lg">
                   I review all inquiries personally. If I can help, I'll provide a clear recommendation and a quote for a full Risk Snapshot.
                 </p>
-                <div className="flex items-center space-x-3 text-brand-400 font-bold text-lg">
-                  <Mail className="w-5 h-5" />
-                  <a href="mailto:rami.nairatt@gmail.com" className="hover:text-white transition">rami.nairatt@gmail.com</a>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-8 text-brand-400 font-bold text-lg">
+                  <div className="flex items-center space-x-3">
+                    <Mail className="w-5 h-5" />
+                    <a href="mailto:rami.nairatt@gmail.com" className="hover:text-white transition">rami.nairatt@gmail.com</a>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Phone className="w-5 h-5" />
+                    <a href="tel:+16476464631" className="hover:text-white transition">647 646 4631</a>
+                  </div>
                 </div>
               </div>
             </div>

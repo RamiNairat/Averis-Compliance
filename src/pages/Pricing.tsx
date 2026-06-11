@@ -72,7 +72,7 @@ export default function Pricing() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className={`card-premium flex flex-col h-full relative ${tier.highlight ? 'ring-2 ring-brand-600 shadow-2xl scale-105 z-10' : ''} ${tier.urgent ? 'ring-2 ring-red-600 shadow-2xl' : ''}`}
+              className={`card-premium flex flex-col h-full relative ${tier.highlight ? 'ring-2 ring-brand-600 shadow-md scale-102 z-10' : ''} ${tier.urgent ? 'ring-2 ring-red-600 shadow-md' : ''}`}
             >
               {tier.highlight && (
                 <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[10px] font-bold uppercase tracking-widest py-1 px-4 rounded-full">
@@ -105,9 +105,9 @@ export default function Pricing() {
                   to="/contact" 
                   className={`w-full py-4 rounded-2xl font-bold text-center transition-all ${
                     tier.highlight 
-                    ? 'bg-brand-600 text-white hover:bg-brand-700 shadow-xl shadow-brand-500/20' 
+                    ? 'bg-brand-600 text-white hover:bg-brand-700 shadow-md' 
                     : tier.urgent
-                    ? 'bg-red-600 text-white hover:bg-red-700 shadow-xl shadow-red-500/20'
+                    ? 'bg-red-600 text-white hover:bg-red-700 shadow-md'
                     : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
                   }`}
                 >
@@ -144,7 +144,7 @@ export default function Pricing() {
                 a: "I aim to respond to all initial inquiries within 24 hours. Once a review is started, I typically deliver the final risk summary within 24 hours."
               }
             ].map((faq, i) => (
-              <div key={i} className="p-8 rounded-3xl bg-slate-50 border border-slate-200">
+              <div key={i} className="p-6 rounded-xl bg-slate-50 border border-slate-200">
                 <h4 className="font-bold text-xl mb-4 flex items-center">
                   <HelpCircle className="w-5 h-5 text-brand-600 mr-3" />
                   {faq.q}

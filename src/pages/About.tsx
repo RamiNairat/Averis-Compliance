@@ -6,15 +6,15 @@ export default function About() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 bg-slate-50">
+      <section className="pt-12 pb-8 px-6 bg-slate-50">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="trust-badge text-slate-600 mb-6">About Me</div>
-            <h1 className="heading-display text-5xl md:text-7xl mb-6">Direct, Honest, and Accountable.</h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
+            <h1 className="heading-display text-5xl md:text-7xl mb-4">Direct, Honest, and Accountable.</h1>
+            <p className="text-xl text-slate-600 leading-relaxed mb-4">
               I specialize in identifying why Amazon rejects compliance documents. No fluff, no fake documents. Just technical clarity.
             </p>
           </motion.div>
@@ -22,7 +22,7 @@ export default function About() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 px-6">
+      <section className="py-12 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12">
             <div className="md:col-span-2 space-y-8">

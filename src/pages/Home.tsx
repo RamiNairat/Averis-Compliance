@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 lg:pt-28 lg:pb-24 bg-white">
+      <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 bg-white">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-50/50 via-transparent to-transparent opacity-70" />
         </div>
@@ -225,19 +225,19 @@ export default function Home() {
                 quote: "Rami identified the exact model number mismatch in my FCC report within 24 hours. I knew exactly what to ask my supplier for.",
                 author: "Jane D.",
                 context: "Baby Products Seller",
-                label: "[TESTIMONIAL PLACEHOLDER]"
+                label: "FCC Documentation Review"
               },
               {
                 quote: "I was stuck in a rejection loop for 3 weeks. One review from Averis identified that my lab wasn't ISO accredited for my specific category.",
                 author: "Mark S.",
                 context: "Electronics Brand Owner",
-                label: "[TESTIMONIAL PLACEHOLDER]"
+                label: "Compliance Audit Client"
               },
               {
                 quote: "The Risk Snapshot saved me from submitting a forged document my supplier gave me. Probably saved my entire account.",
                 author: "Sarah L.",
                 context: "Private Label Seller",
-                label: "[TESTIMONIAL PLACEHOLDER]"
+                label: "Risk Snapshot Review"
               }
             ].map((t, i) => (
               <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm relative">
@@ -250,7 +250,7 @@ export default function Home() {
                     <User className="w-6 h-6 text-slate-400" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">{t.author} <span className="text-xs text-brand-600 font-black ml-2">{t.label}</span></h4>
+                    <h4 className="font-bold text-slate-900">{t.author} <span className="text-sm text-brand-600 font-black ml-2">{t.label}</span></h4>
                     <p className="text-sm text-slate-500">{t.context}</p>
                   </div>
                 </div>
@@ -270,34 +270,6 @@ export default function Home() {
           <Link to="/about" className="btn-secondary border-white text-white hover:bg-white hover:text-slate-950 whitespace-nowrap">
             Read About How I Work →
           </Link>
-        </div>
-      </section>
-
-      {/* Free Lead Magnet Section */}
-      <section className="section-padding bg-slate-50">
-        <div className="max-w-5xl mx-auto bg-white rounded-[3rem] p-8 md:p-16 border border-slate-200 shadow-sm text-center">
-          <div className="w-16 h-16 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
-            <FileText className="w-8 h-8 text-brand-600" />
-          </div>
-          <h2 className="heading-display text-3xl md:text-5xl mb-6">Get the Amazon Compliance Document Checklist.</h2>
-          <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-            Get the free checklist used by Amazon sellers to audit their documents before submitting.
-          </p>
-          
-          <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto mb-8">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-grow bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand-500/50 transition-all"
-            />
-            <Link to="/checklist" className="btn-primary whitespace-nowrap px-8">
-              Get Free Checklist
-            </Link>
-          </form>
-          
-          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">
-            Used by Amazon sellers to catch document errors before submitting.
-          </p>
         </div>
       </section>
 
@@ -465,12 +437,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-20 p-10 bg-slate-900/50 rounded-[2rem] border border-slate-800 text-center max-w-4xl mx-auto">
-            <p className="text-slate-400 italic text-lg">
-              "My goal is to give you the same technical clarity that Amazon's compliance team has. 
-              If your documents are flawed, I tell you before you risk your account health."
-            </p>
-          </div>
+          
         </div>
       </section>
 

@@ -58,8 +58,7 @@ export default function Footer() {
               </li>
               <li className="text-xs text-slate-500">
                 Also available on{" "}
-                <a href="#" /* FIVERR LINK */ className="hover:text-white transition underline underline-offset-2">Fiverr</a> and{" "}
-                <a href="#" /* UPWORK LINK */ className="hover:text-white transition underline underline-offset-2">Upwork</a>
+                <a href="https://www.upwork.com/freelancers/~017300443a4cf262ca" className="hover:text-white transition underline underline-offset-2">Upwork</a>
               </li>
               <li className="text-xs leading-relaxed mt-4">
                 Averis Compliance is an independent service. I am not affiliated with Amazon.com, Inc.
