@@ -1,0 +1,247 @@
+.svc-list {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.svc-list > li {
+  border-bottom: 1px solid var(--line);
+}
+
+.svc__sum {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) minmax(0, 15rem) 7.5rem;
+  align-items: center;
+  gap: var(--s-1) var(--s-5);
+  padding: var(--s-4) var(--s-1);
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--r-lg);
+  transition: background-color 150ms ease;
+}
+
+.svc__sum::-webkit-details-marker {
+  display: none;
+}
+
+.svc__sum:hover {
+  background: var(--wash);
+}
+
+.svc__sum:hover .svc__name,
+.svc[open] .svc__name {
+  color: var(--coral-ink);
+}
+
+.svc__name {
+  transition: color 150ms ease;
+}
+
+.svc__num {
+  align-self: start;
+  padding-top: 5px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--coral);
+  font-variant-numeric: tabular-nums;
+}
+
+.svc__name {
+  font-size: clamp(1.1875rem, 1rem + 0.6vw, 1.4375rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.svc__brief {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-2);
+}
+
+.svc__terms {
+  display: grid;
+}
+
+.svc__price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.svc__price small {
+  font-size: 0.875rem;
+  font-weight: 420;
+  letter-spacing: 0;
+  color: var(--ink-3);
+}
+
+.svc__note {
+  margin-top: 2px;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+
+.svc__toggle {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  font-size: 0.9375rem;
+  font-weight: 560;
+  color: var(--coral-ink);
+}
+
+.svc__toggle::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.svc[open] .svc__toggle::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.svc__toggle-close,
+.svc[open] .svc__toggle-open {
+  display: none;
+}
+
+.svc[open] .svc__toggle-close {
+  display: inline;
+}
+
+/* --- Detail -------------------------------------------------------------------- */
+
+.svc__detail {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.6fr);
+  gap: 28px 44px;
+  margin: 0 0 var(--s-4) calc(2.75rem + 40px);
+  padding: var(--s-4);
+  border-left: 2px solid var(--coral);
+  border-radius: 0 var(--r-lg) var(--r-lg) 0;
+  background: var(--wash);
+}
+
+.svc__full {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.svc__lead > p {
+  color: var(--ink-2);
+}
+
+.svc__lead > p.svc__full {
+  color: var(--ink);
+}
+
+.svc__scope {
+  margin-top: 12px;
+  font-size: 0.9375rem;
+}
+
+.svc__scope strong {
+  color: var(--ink);
+}
+
+.svc__addons {
+  list-style: none;
+  margin-top: 12px;
+  font-size: 0.9375rem;
+}
+
+.svc__addons li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 0;
+  border-top: 1px solid var(--line-2);
+}
+
+.svc__addons strong {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.svc__lead .btn {
+  margin-top: 18px;
+}
+
+.svc__lists {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+
+.svc__list-title {
+  margin-bottom: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+@media (max-width: 960px) {
+  .svc__sum {
+    grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      "num main main"
+      "num terms toggle";
+    gap: 12px 16px;
+  }
+
+  .svc__num {
+    grid-area: num;
+  }
+
+  .svc__main {
+    grid-area: main;
+  }
+
+  .svc__terms {
+    grid-area: terms;
+  }
+
+  .svc__toggle {
+    grid-area: toggle;
+    align-self: end;
+  }
+
+  .svc__detail {
+    grid-template-columns: 1fr;
+    margin-left: calc(2.25rem + 24px);
+  }
+}
+
+@media (max-width: 560px) {
+  .svc__sum {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "num num"
+      "main main"
+      "terms toggle";
+    gap: 6px 12px;
+    padding: 22px 4px;
+  }
+
+  .svc__num {
+    padding-top: 0;
+  }
+
+  .svc__detail {
+    margin-left: 0;
+    padding: 18px;
+  }
+
+  .svc__lists {
+    grid-template-columns: 1fr;
+  }
+}

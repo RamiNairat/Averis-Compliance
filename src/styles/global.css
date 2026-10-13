@@ -1,0 +1,587 @@
+/* ===========================================================================
+   Averis — base system
+   DM Sans for everything; DM Mono only for identifiers and document
+   values. Neutral surfaces, one warm coral accent.
+=========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  --ink: #181818;
+  --ink-2: #3d3f44;
+  --ink-3: #55585e;
+  --paper: #ffffff;
+  --wash: #f6f7f8;
+  --wash-2: #eef0f2;
+  --line: #e6e7ea;
+  --line-2: #d3d6db;
+
+  /* Coral: brand colour for actions, selection and found mismatches.
+     #c4461c carries white text at 4.9:1. */
+  --coral: #c4461c;
+  --coral-hover: #a8380f;
+  --coral-ink: #9a3a1c;
+  --coral-tint: #fbe8e0;
+  --coral-mark: #f6cdbb;
+
+  --sans: "DM Sans Variable", "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Spacing scale: 8 12 16 24 32 48 64 80 */
+  --s-1: 8px;
+  --s-2: 12px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+  --s-6: 48px;
+  --s-7: 64px;
+  --s-8: 80px;
+
+  --r-sm: 6px;
+  --r: 8px;
+  --r-lg: 10px;
+  --wrap: 1180px;
+  --gutter: clamp(18px, 4vw, 40px);
+  --pad: clamp(48px, 5.5vw, 72px);
+  --header-h: 64px;
+  --shadow: 0 1px 2px rgb(24 24 24 / 4%), 0 10px 28px -14px rgb(24 24 24 / 14%);
+}
+
+/* --- Reset --------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--coral-mark);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* --- Type ---------------------------------------------------------------- */
+
+h1,
+h2 {
+  font-weight: 620;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.125rem, 1.5rem + 2.3vw, 3.25rem);
+  font-weight: 650;
+}
+
+h2 {
+  font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.375rem);
+}
+
+h3 {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+strong {
+  font-weight: 600;
+}
+
+
+/* Identifiers and document values */
+.id,
+code {
+  font-family: var(--mono);
+  font-size: 0.94em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.lede {
+  font-size: 1.1875rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+@media (max-width: 640px) {
+  .lede {
+    font-size: 1.0625rem;
+  }
+}
+
+/* --- Links --------------------------------------------------------------- */
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--coral) 45%, transparent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+  transition:
+    color 150ms ease,
+    text-decoration-color 150ms ease;
+}
+
+a:hover {
+  color: var(--coral-ink);
+  text-decoration-color: var(--coral);
+}
+
+/* Inline action link: "View scope", "Read the full sample" */
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 560;
+  color: var(--coral-ink);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.25em;
+}
+
+.more::after {
+  content: "→";
+  transition: transform 150ms ease;
+}
+
+.more:hover {
+  color: var(--coral-hover);
+  text-decoration-color: currentColor;
+}
+
+.more:hover::after {
+  transform: translateX(3px);
+}
+
+/* --- Layout -------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.band {
+  padding-block: var(--pad);
+}
+
+.band--wash {
+  background: var(--wash);
+}
+
+.section-intro {
+  max-width: 40rem;
+  margin-bottom: var(--s-5);
+}
+
+.section-intro p {
+  margin-top: var(--s-2);
+  color: var(--ink-2);
+}
+
+/* Inner page heading */
+.page-head {
+  background: var(--wash);
+  padding-top: clamp(40px, 5vw, 64px);
+  padding-bottom: clamp(32px, 4vw, 48px);
+}
+
+.page-head h1 {
+  max-width: 18em;
+}
+
+.page-head .lede {
+  max-width: 40rem;
+  margin-top: 16px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -80px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: var(--r);
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 10px;
+  color: #fff;
+}
+
+/* --- Buttons ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 50px;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--r);
+  font: 560 1rem/1.2 var(--sans);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.btn--primary {
+  background: var(--coral);
+  color: #fff;
+  box-shadow:
+    0 1px 2px rgb(120 40 12 / 30%),
+    inset 0 1px 0 rgb(255 255 255 / 12%);
+}
+
+.btn--primary:hover {
+  background: var(--coral-hover);
+  color: #fff;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--paper),
+    0 0 0 4px var(--coral);
+}
+
+.btn--secondary {
+  background: var(--paper);
+  border-color: #c3c6cc;
+  color: var(--ink);
+}
+
+.btn--secondary:hover {
+  border-color: var(--ink-3);
+  background: var(--wash);
+  color: var(--ink);
+}
+
+
+.btn--sm {
+  min-height: 42px;
+  padding: 9px 18px;
+  font-size: 0.9375rem;
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* --- Lists ---------------------------------------------------------------- */
+
+.ticks li,
+.crosses li,
+.dots li {
+  position: relative;
+  list-style: none;
+  padding-left: 1.6em;
+}
+
+.ticks li + li,
+.crosses li + li,
+.dots li + li {
+  margin-top: 0.5em;
+}
+
+.ticks li::before,
+.crosses li::before {
+  position: absolute;
+  left: 0.1em;
+  top: 0;
+  font-weight: 500;
+}
+
+.ticks li::before {
+  content: "✓";
+  color: var(--coral);
+}
+
+.crosses li::before {
+  content: "×";
+  left: 0.15em;
+  font-size: 1.15em;
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+
+.dots li::before {
+  content: "";
+  position: absolute;
+  left: 0.35em;
+  top: 0.68em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ink-3);
+}
+
+/* --- Forms ---------------------------------------------------------------- */
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.fields {
+  display: grid;
+  gap: 22px;
+}
+
+.fields--2 {
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 18px;
+}
+
+@media (max-width: 560px) {
+  .fields--2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field > label,
+.field > legend {
+  padding: 0;
+  font-size: 0.9375rem;
+  font-weight: 550;
+}
+
+.field .opt {
+  font-weight: 400;
+  color: var(--ink-3);
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.textarea {
+  min-height: 170px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.select {
+  appearance: none;
+  padding-right: 40px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--ink-3) 50%),
+    linear-gradient(135deg, var(--ink-3) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 52%,
+    calc(100% - 15px) 52%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.input:hover,
+.select:hover,
+.textarea:hover {
+  border-color: var(--ink-3);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px var(--coral-tint);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r);
+  font-size: 0.9375rem;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.chip:hover {
+  border-color: var(--ink-3);
+}
+
+.chip input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--coral);
+}
+
+.chip:has(input:checked) {
+  border-color: var(--coral);
+  background: var(--coral-tint);
+}
+
+.chip:has(input:focus-visible) {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+.alert {
+  padding: 14px 16px;
+  border-radius: var(--r);
+  background: var(--coral-tint);
+  font-size: 0.9375rem;
+}
+
+/* Scope statement, readable size */
+.scope-note {
+  max-width: 50rem;
+  font-size: 0.9375rem;
+  color: var(--ink-3);
+}

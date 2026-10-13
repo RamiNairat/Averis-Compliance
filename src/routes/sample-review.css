@@ -1,0 +1,168 @@
+.fiction {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 6px 14px;
+  border-radius: var(--r);
+  background: var(--coral-tint);
+  color: var(--coral-ink);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.sample-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  gap: 32px 48px;
+  align-items: start;
+}
+
+/* --- Summary ---------------------------------------------------------------- */
+
+.summary__text {
+  max-width: 44rem;
+  color: var(--ink-2);
+}
+
+.summary__counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 16px;
+  list-style: none;
+}
+
+.summary__counts li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Documents ---------------------------------------------------------------- */
+
+.doc-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 10px 28px;
+  list-style: none;
+}
+
+.doc-list li {
+  display: grid;
+}
+
+.doc-list__name {
+  font-weight: 550;
+}
+
+.doc-list__detail {
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+
+/* --- Findings --------------------------------------------------------------------- */
+
+.report__findings-title {
+  padding: 22px 24px 4px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.report__split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 40px;
+  border-top: 1px solid var(--line);
+}
+
+.numbered {
+  padding-left: 1.3em;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+
+.numbered li + li {
+  margin-top: 8px;
+}
+
+.numbered li::marker {
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.report__limits p {
+  max-width: 44rem;
+  font-size: 0.9375rem;
+  color: var(--ink-3);
+}
+
+@media (max-width: 760px) {
+  .report__split {
+    grid-template-columns: 1fr;
+  }
+
+  .report__findings-title {
+    padding-inline: 16px;
+  }
+}
+
+/* --- Reading guide ------------------------------------------------------------------ */
+
+.reading-guide {
+  position: sticky;
+  top: calc(var(--header-h) + 32px);
+  padding: 22px;
+  border-radius: var(--r-lg);
+  background: var(--wash);
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+
+.reading-guide h2 {
+  margin-bottom: 10px;
+  font-size: 1.0625rem;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+.reading-guide p + p,
+.reading-guide ul + p {
+  margin-top: 12px;
+}
+
+.reading-guide mark {
+  border-radius: 3px;
+  background: var(--coral-mark);
+  color: var(--coral-ink);
+}
+
+.guide-sev {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.guide-sev li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guide-sev .sev {
+  min-width: 5.25rem;
+}
+
+@media (max-width: 1060px) {
+  .sample-page {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-guide {
+    position: static;
+    order: -1;
+    max-width: 44rem;
+  }
+}

@@ -1,0 +1,224 @@
+/* A comparison of one field across documents, written up the way a reviewer
+   would show it: source, value, whether it agrees. */
+
+.cmp {
+  margin: 0;
+}
+
+.cmp__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-bottom: 6px;
+}
+
+.cmp__field {
+  font-weight: 600;
+}
+
+.cmp__count {
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+
+.cmp__rows {
+  list-style: none;
+}
+
+.cmp__row {
+  display: grid;
+  align-items: center;
+  column-gap: 16px;
+  border-bottom: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  transition: background-color 150ms ease;
+}
+
+.cmp__row:last-child {
+  border-bottom: 0;
+}
+
+.cmp__source {
+  grid-area: source;
+  min-width: 0;
+  color: var(--ink-2);
+}
+
+.cmp__value {
+  grid-area: value;
+  min-width: 0;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.cmp__status {
+  grid-area: status;
+  justify-self: end;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.cmp__status--flag {
+  color: var(--coral-ink);
+  font-weight: 600;
+}
+
+.cmp__row[data-state="flag"] {
+  background: var(--coral-tint);
+  border-bottom-color: transparent;
+}
+
+.cmp__mark {
+  position: relative;
+  padding: 0 0.06em;
+  border-radius: 3px;
+  background: var(--coral-mark);
+  color: var(--coral-ink);
+}
+
+.cmp__mark--whole {
+  padding: 0 0.3em;
+}
+
+/* While the flagged row is inspected, light up the same positions in the
+   value it conflicts with. */
+.cmp__echo {
+  border-radius: 3px;
+  transition: background-color 150ms ease;
+}
+
+.cmp:has(.cmp__row[data-state="flag"]:hover) .cmp__echo,
+.cmp:has(.cmp__row[data-state="flag"]:focus-visible) .cmp__echo,
+.cmp__row[data-state="ref"]:hover .cmp__echo {
+  background: var(--coral-mark);
+}
+
+.cmp:has(.cmp__row[data-state="flag"]:hover) .cmp__row[data-state="ref"],
+.cmp:has(.cmp__row[data-state="flag"]:focus-visible) .cmp__row[data-state="ref"] {
+  background: var(--wash);
+}
+
+.cmp__note {
+  margin-top: 14px;
+  padding: 13px 16px 14px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--coral);
+  border-radius: var(--r);
+  background: var(--paper);
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+
+.cmp__note strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+}
+
+/* --- Large: hero ------------------------------------------------------------ */
+
+.cmp--lg .cmp__row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "source status"
+    "value value";
+  row-gap: 2px;
+  padding: 13px 14px 15px;
+}
+
+.cmp--lg .cmp__source {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.cmp--lg .cmp__value {
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.5rem);
+  letter-spacing: -0.02em;
+}
+
+/* Thin pen line from the flagged character down to the note */
+.cmp__lead {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 1px);
+  width: 1.5px;
+  height: 31px;
+  margin-left: -0.75px;
+  background: var(--coral);
+  transform-origin: top;
+}
+
+/* --- Small: findings ---------------------------------------------------- */
+
+.cmp--sm {
+  font-size: 0.9375rem;
+}
+
+.cmp--sm .cmp__row {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) 7.5rem;
+  grid-template-areas: "source value status";
+  padding: 9px 10px;
+}
+
+@media (max-width: 560px) {
+  .cmp--sm .cmp__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "source status"
+      "value value";
+    row-gap: 2px;
+  }
+}
+
+/* --- Entrance --------------------------------------------------------------- */
+
+@keyframes cmp-mark {
+  from {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+@keyframes cmp-drop {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes cmp-note {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.cmp--intro .cmp__mark,
+.cmp[data-reveal="in"] .cmp__mark {
+  animation: cmp-mark 400ms 500ms ease-out both;
+}
+
+.cmp--intro .cmp__lead,
+.cmp[data-reveal="in"] .cmp__lead {
+  animation: cmp-drop 300ms 850ms ease-out both;
+}
+
+.cmp--intro .cmp__note,
+.cmp[data-reveal="in"] .cmp__note {
+  animation: cmp-note 350ms 1000ms ease-out both;
+}
+
+.cmp[data-reveal="armed"] .cmp__mark {
+  background-color: transparent;
+  color: inherit;
+}
+
+.cmp[data-reveal="armed"] .cmp__lead {
+  transform: scaleY(0);
+}
+
+.cmp[data-reveal="armed"] .cmp__note {
+  opacity: 0;
+}

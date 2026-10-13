@@ -1,0 +1,254 @@
+/* The sample report: a written document with expandable findings. */
+
+.report {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.report__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 24px 24px 12px;
+}
+
+.report__title {
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.report__sub {
+  margin-top: 2px;
+  font-size: 0.9375rem;
+  color: var(--ink-3);
+}
+
+.report__tag {
+  flex-shrink: 0;
+  color: var(--coral-ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.report__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  margin: 0 24px;
+  padding: 12px 0 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9375rem;
+}
+
+.report__meta div {
+  display: flex;
+  gap: 6px;
+}
+
+.report__meta dt {
+  color: var(--ink-3);
+}
+
+.report__meta dt::after {
+  content: ":";
+}
+
+.report__meta dd {
+  font-weight: 600;
+}
+
+.report__section {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.report__section:last-child {
+  border-bottom: 0;
+}
+
+.report__section h2,
+.report__section h3 {
+  margin-bottom: 10px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 560px) {
+  .report__head {
+    flex-direction: column;
+    padding: 18px 16px 12px;
+  }
+
+  .report__meta {
+    margin: 0 16px;
+  }
+
+  .report__section {
+    padding: 18px 16px;
+  }
+}
+
+/* --- Severity: a dot and a word, not a badge ------------------------------- */
+
+.sev {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  color: var(--ink-2);
+}
+
+.sev::before {
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.sev--high {
+  color: var(--coral-ink);
+}
+
+.sev--high::before {
+  background: var(--coral);
+}
+
+.sev--medium::before {
+  box-shadow: inset 0 0 0 2px var(--coral);
+}
+
+.sev--low::before {
+  box-shadow: inset 0 0 0 1.5px var(--ink-3);
+}
+
+.sev--pass {
+  color: var(--ink-3);
+}
+
+.sev--pass::before {
+  content: "✓";
+  width: auto;
+  height: auto;
+  font-size: 0.8125rem;
+}
+
+/* --- Finding -------------------------------------------------------------- */
+
+.finding {
+  border-bottom: 1px solid var(--line);
+}
+
+.finding:last-child {
+  border-bottom: 0;
+}
+
+.finding__sum {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr) 5.5rem 20px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 150ms ease;
+}
+
+.finding__sum::-webkit-details-marker {
+  display: none;
+}
+
+.finding__sum:hover {
+  background: var(--wash);
+}
+
+.finding__num {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--coral-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.finding__title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.35;
+}
+
+.finding__chev {
+  justify-self: end;
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid var(--ink-3);
+  border-bottom: 1.5px solid var(--ink-3);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.finding[open] .finding__chev {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.finding__body {
+  padding: 0 24px 22px calc(24px + 1.5rem + 14px);
+}
+
+.finding__note {
+  max-width: 42rem;
+  margin-top: 12px;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+
+.finding__action {
+  max-width: 42rem;
+  margin-top: 10px;
+  padding: 11px 14px;
+  border-radius: var(--r);
+  background: var(--wash);
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 640px) {
+  .finding__sum {
+    grid-template-columns: 1.25rem minmax(0, 1fr) 20px;
+    grid-template-areas:
+      "num title chev"
+      ". sev .";
+    gap: 6px 10px;
+    padding: 14px 16px;
+    align-items: start;
+  }
+
+  .finding__num {
+    grid-area: num;
+  }
+
+  .finding__title {
+    grid-area: title;
+  }
+
+  .finding__sum .sev {
+    grid-area: sev;
+    justify-self: start;
+  }
+
+  .finding__chev {
+    grid-area: chev;
+    margin-top: 6px;
+  }
+
+  .finding__body {
+    padding: 0 16px 18px;
+  }
+}
