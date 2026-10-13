@@ -87,7 +87,7 @@
 }
 
 .contact__direct a {
-  font-weight: 550;
+  font-weight: 500;
   color: var(--ink);
   overflow-wrap: anywhere;
 }

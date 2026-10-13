@@ -15,11 +15,13 @@
   --wash-2: #eef0f2;
   --line: #e6e7ea;
   --line-2: #d3d6db;
+  /* Outlines that identify a control (inputs, secondary buttons): 3.2:1 on white */
+  --control: #8c9099;
 
   /* Coral: brand colour for actions, selection and found mismatches.
-     #c4461c carries white text at 4.9:1. */
-  --coral: #c4461c;
-  --coral-hover: #a8380f;
+     #c2410c carries white text at 5.2:1; the hover shade at 7.3:1. */
+  --coral: #c2410c;
+  --coral-hover: #9f330a;
   --coral-ink: #9a3a1c;
   --coral-tint: #fbe8e0;
   --coral-mark: #f6cdbb;
@@ -222,7 +224,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-weight: 560;
+  font-weight: 600;
   color: var(--coral-ink);
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -326,7 +328,7 @@ a:hover {
   padding: 13px 24px;
   border: 1px solid transparent;
   border-radius: var(--r);
-  font: 560 1rem/1.2 var(--sans);
+  font: 600 1rem/1.2 var(--sans);
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
@@ -339,15 +341,21 @@ a:hover {
 
 .btn--primary {
   background: var(--coral);
+  border-color: var(--coral-hover);
   color: #fff;
   box-shadow:
     0 1px 2px rgb(120 40 12 / 30%),
-    inset 0 1px 0 rgb(255 255 255 / 12%);
+    inset 0 1px 0 rgb(255 255 255 / 14%);
 }
 
 .btn--primary:hover {
   background: var(--coral-hover);
   color: #fff;
+}
+
+.btn--primary:active {
+  background: #872b08;
+  box-shadow: none;
 }
 
 .btn:focus-visible {
@@ -359,8 +367,12 @@ a:hover {
 
 .btn--secondary {
   background: var(--paper);
-  border-color: #c3c6cc;
+  border-color: var(--control);
   color: var(--ink);
+}
+
+.btn--secondary:active {
+  background: var(--wash-2);
 }
 
 .btn--secondary:hover {
@@ -376,9 +388,14 @@ a:hover {
   font-size: 0.9375rem;
 }
 
+.btn:active {
+  transform: translateY(1px);
+}
+
 .btn[disabled] {
-  opacity: 0.6;
-  cursor: default;
+  opacity: 0.7;
+  cursor: progress;
+  transform: none;
 }
 
 .btn-row {
@@ -466,7 +483,7 @@ a:hover {
 .field > legend {
   padding: 0;
   font-size: 0.9375rem;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 .field .opt {
@@ -485,7 +502,7 @@ a:hover {
   width: 100%;
   min-height: 48px;
   padding: 11px 14px;
-  border: 1px solid var(--line-2);
+  border: 1px solid var(--control);
   border-radius: var(--r-sm);
   background: var(--paper);
   color: var(--ink);
@@ -541,7 +558,7 @@ a:hover {
   gap: 8px;
   min-height: 40px;
   padding: 6px 14px;
-  border: 1px solid var(--line-2);
+  border: 1px solid var(--control);
   border-radius: var(--r);
   font-size: 0.9375rem;
   cursor: pointer;
@@ -584,4 +601,32 @@ a:hover {
   max-width: 50rem;
   font-size: 0.9375rem;
   color: var(--ink-3);
+}
+
+/* --- Print / PDF ----------------------------------------------------------- */
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* A sticky header would sit over page content on every printed page. */
+  .site-header {
+    position: static;
+  }
+
+  .mobile-nav,
+  .menu-toggle,
+  .skip-link {
+    display: none !important;
+  }
+
+  details:not([open]) > :not(summary) {
+    display: none;
+  }
+
+  .band {
+    padding-block: var(--s-6);
+  }
 }

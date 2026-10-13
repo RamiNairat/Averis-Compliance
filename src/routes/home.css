@@ -494,7 +494,7 @@
   align-items: center;
   gap: 6px;
   font-size: 0.9375rem;
-  font-weight: 560;
+  font-weight: 600;
   color: var(--coral-ink);
   white-space: nowrap;
 }

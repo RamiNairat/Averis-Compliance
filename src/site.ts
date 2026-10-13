@@ -19,3 +19,7 @@ export const site = {
 
 export const scopeStatement =
   "Averis provides document review and operational compliance support. Averis is not a law firm, does not provide legal advice, does not perform laboratory testing, does not issue certifications and cannot guarantee marketplace or regulatory approval.";
+
+// Compact version for the footer; the full statement appears once in page content.
+export const scopeShort =
+  "Averis provides document-review support and does not provide legal advice, testing, certification issuance or approval guarantees.";

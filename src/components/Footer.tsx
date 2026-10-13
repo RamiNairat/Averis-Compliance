@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { scopeStatement, site } from "../site";
+import { scopeShort, site } from "../site";
 import "./footer.css";
 
 export function Footer() {
@@ -21,9 +21,7 @@ export function Footer() {
             {site.email}
           </a>
         </div>
-        <p className="site-footer__small">
-          {scopeStatement} Not affiliated with Amazon.com, Inc.
-        </p>
+        <p className="site-footer__small">{scopeShort} Not affiliated with Amazon.com, Inc.</p>
         <p className="site-footer__small">
           © {new Date().getFullYear()} Averis Compliance · <Link to="/privacy">Privacy</Link> ·{" "}
           <Link to="/terms">Terms</Link>

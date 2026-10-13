@@ -93,9 +93,11 @@
 
 .menu-toggle {
   display: none;
-  min-height: 40px;
+  min-height: 44px;
+  min-width: 72px;
+  justify-content: center;
   padding: 6px 14px;
-  border: 1px solid var(--line-2);
+  border: 1px solid var(--control);
   border-radius: var(--r);
   background: var(--paper);
   font-size: 0.9375rem;

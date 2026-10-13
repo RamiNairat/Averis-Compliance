@@ -46,7 +46,7 @@
 
 .facts dd {
   margin-top: 2px;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 @media (max-width: 900px) {

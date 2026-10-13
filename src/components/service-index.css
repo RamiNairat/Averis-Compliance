@@ -71,7 +71,7 @@
 
 .svc__price small {
   font-size: 0.875rem;
-  font-weight: 420;
+  font-weight: 400;
   letter-spacing: 0;
   color: var(--ink-3);
 }
@@ -88,7 +88,7 @@
   align-items: center;
   gap: var(--s-1);
   font-size: 0.9375rem;
-  font-weight: 560;
+  font-weight: 600;
   color: var(--coral-ink);
 }
 
