@@ -51,7 +51,7 @@ export default function Privacy() {
           <div>
             <p>
               The contact form is processed by Formspree, which delivers submissions to my email. The site is hosted on
-              Vercel, which keeps standard server logs. Email is handled by Google. These providers process data under
+              Vercel, which keeps standard server logs. Email is handled by Namecheap’s Private Email service. These providers process data under
               their own privacy policies.
             </p>
           </div>

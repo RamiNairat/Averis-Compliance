@@ -7,8 +7,8 @@ export const site = {
   // Primary domain. If it changes, also update public/robots.txt,
   // public/sitemap.xml and the host redirect in vercel.json.
   url: "https://www.averiscompliance.com",
-  // Temporary address until a domain mailbox exists.
-  email: "rami.nairatt@gmail.com",
+  // Domain mailbox (Namecheap Private Email).
+  email: "rami@averiscompliance.com",
   phone: { display: "647 646 4631", href: "tel:+16476464631" },
   upworkUrl: "https://www.upwork.com/freelancers/~017300443a4cf262ca",
   // Contact form submissions are delivered by Formspree to the email above.
