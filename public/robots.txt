@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://averis-compliance.vercel.app/sitemap.xml
+Sitemap: https://www.averiscompliance.com/sitemap.xml

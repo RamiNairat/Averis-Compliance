@@ -6,14 +6,42 @@
   "outputDirectory": "build/client",
   "trailingSlash": false,
   "redirects": [
-    { "source": "/pricing", "destination": "/services#pricing", "permanent": true },
-    { "source": "/how-it-works", "destination": "/#how-it-works", "permanent": true },
-    { "source": "/checklist", "destination": "/contact", "permanent": true }
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "averis-compliance.vercel.app"
+        }
+      ],
+      "destination": "https://www.averiscompliance.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/services#pricing",
+      "permanent": true
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/#how-it-works",
+      "permanent": true
+    },
+    {
+      "source": "/checklist",
+      "destination": "/contact",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

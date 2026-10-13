@@ -37,6 +37,8 @@ email. The form does not accept file uploads.
 ## Moving to a custom domain
 
 1. Update `url` (and `email`, if a domain mailbox exists) in `src/site.ts`.
+   The live domain is https://www.averiscompliance.com; the old vercel.app address
+   redirects to it via `vercel.json`.
 2. Update the domain in `public/robots.txt` and `public/sitemap.xml`.
 
 Canonical URLs and Open Graph tags are generated from `src/site.ts`.

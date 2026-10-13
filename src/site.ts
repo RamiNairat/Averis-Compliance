@@ -4,9 +4,9 @@ export const site = {
   name: "Averis Compliance",
   shortName: "Averis",
   founder: "Rami",
-  // No custom domain yet. When one is connected, update this value and the two
-  // URLs in public/robots.txt and public/sitemap.xml.
-  url: "https://averis-compliance.vercel.app",
+  // Primary domain. If it changes, also update public/robots.txt,
+  // public/sitemap.xml and the host redirect in vercel.json.
+  url: "https://www.averiscompliance.com",
   // Temporary address until a domain mailbox exists.
   email: "rami.nairatt@gmail.com",
   phone: { display: "647 646 4631", href: "tel:+16476464631" },
