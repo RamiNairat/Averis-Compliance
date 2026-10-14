@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "What if my situation doesn’t fit these four services?",
-    a: "Tell me anyway. If it’s outside what I review, I’ll say so rather than sell you something that won’t help.",
+    a: "Tell me anyway. If it’s outside what I review, I’ll tell you.",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function Services() {
           <div>
             <h2 id="first-look-title">Not sure yet? Start with a free first look.</h2>
             <p className="first-look__lede">
-              A short, honest triage before you pay for anything. Useful if you have a notice and don’t know where the
+              A quick triage before you pay for anything. Useful if you have a notice and don’t know where the
               problem is, or a launch coming and aren’t sure your documents agree.
             </p>
             <Link to="/contact" className="btn btn--primary">

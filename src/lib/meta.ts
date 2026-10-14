@@ -9,7 +9,7 @@ type PageMeta = {
 };
 
 export function pageMeta({ path, title, description = site.description, noindex }: PageMeta): MetaDescriptor[] {
-  const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — Amazon Compliance Document Review`;
+  const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Amazon Compliance Document Review`;
   const url = `${site.url}${path}`;
   const image = `${site.url}/og-image.png`;
 

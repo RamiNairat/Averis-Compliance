@@ -130,7 +130,7 @@ export default function SampleReview() {
                 <SeverityTag severity="pass" /> checked and consistent
               </li>
             </ul>
-            <p>Every finding ends with something to do, even if that’s nothing.</p>
+            <p>Every finding ends with a next step.</p>
           </aside>
         </div>
       </div>

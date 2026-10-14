@@ -8,7 +8,7 @@ export const meta = () =>
     path: "/contact",
     title: "Get a free first look",
     description:
-      "Tell Averis about your Amazon compliance notice or upcoming launch. You’ll get an initial triage: the most obvious issues and an honest view of whether a paid review would help.",
+      "Tell Averis about your Amazon compliance notice or upcoming launch. You’ll get a quick triage: the most obvious issues and whether a paid review would help.",
   });
 
 export default function Contact() {

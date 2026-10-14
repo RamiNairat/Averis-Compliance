@@ -150,8 +150,8 @@ export default function Home() {
               </div>
             </div>
             <figcaption className="fragments__caption">
-              <strong>One product, three identities.</strong> Sometimes nothing is missing — the documents just don’t
-              agree.
+              <strong>One product, three identities.</strong> Sometimes nothing is missing. The documents just
+              don’t agree.
             </figcaption>
           </figure>
 
@@ -230,7 +230,7 @@ export default function Home() {
         <div className="wrap process">
           <div className="process__intro">
             <h2 id="process-title">How a review works</h2>
-            <p>It starts with a message, not a sales call. Most of it happens over email.</p>
+            <p>It starts with a message, and most of the work happens over email.</p>
           </div>
           <ol className="steps">
             {steps.map((step, i) => (
@@ -307,11 +307,11 @@ export default function Home() {
               </p>
             </blockquote>
             <p className="founder__more">
-              The work is deliberately narrow: the documents that sit between your supplier, your product and your
-              Amazon listing. I’ll tell you plainly if I don’t think you need a paid review.
+              I focus on the documents that sit between your supplier, your product and your Amazon listing. If I
+              don’t think you need a paid review, I’ll tell you.
             </p>
             <p className="founder__sign">
-              — {site.founder} · <Link to="/about">More about how I work</Link>
+              {site.founder} · <Link to="/about">More about how I work</Link>
             </p>
           </div>
 
